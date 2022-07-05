@@ -1,4 +1,4 @@
-from app.entity.class_veiculo import Veiculo
+from entity.class_veiculo import Veiculo
 
 
 class Carro(Veiculo):

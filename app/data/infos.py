@@ -17,3 +17,5 @@ camionetes = [
     {'potencia': 332, 'portas': 6, 'cacamba': 200, 'combustivel': 'diesel', 'chassi': 12341246772,
      'data-fabricação': '13-8-2020', 'modelo': 'amarok', 'placa': 'ast1u23', 'valor': 150300, 'cpf': 0, 'cor': 'roxa'}
     ]
+
+historico_vendas = []
