@@ -1,4 +1,4 @@
-import app.data.infos as data
+import data.infos as data
 
 
 class Veiculo:
