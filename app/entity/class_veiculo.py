@@ -13,24 +13,20 @@ class Veiculo:
         self.info_veiculo = []
         self.data_atual = date.today().strftime("%d/%m/%y")
         self.cpf = cpf
-        self.historico = Historico()
+        self.tipos_veiculos = ['carro', 'moto', 'camionete']
+        self.tipos_veiculos_2 = {'carro': carros, 'moto': motosTriciclos, 'camionete': camionetes}
 
     def vender_veiculo(self, opcao, chassi, cpf, valor):
-        if opcao == 'carro':
-            for car in carros:
-                if chassi == car['chassi']:
-                    car['cpf'] = cpf
-                    self.historico.save_transation(car, cpf, valor, self.data_atual)
-                    print(f"O carro modelo {car['modelo']} cuja placa é {car['placa'].upper()}, foi vendido no valor de"
-                          f" R$ {car['valor']} no dia {self.data_atual}.")
-        if opcao == 'moto':
-            for moto in motosTriciclos:
-                print(moto)
-        if opcao == 'camionete':
-            for camionete in camionetes:
-                print(camionete)
-        else:
+        if opcao not in self.tipos_veiculos_2:
             print('Opção inválida.')
+        veiculo = None
+        for car in self.tipos_veiculos_2.get(opcao):
+            if chassi == car['chassi']:
+                car['cpf'] = cpf
+                print(f"O carro modelo {car['modelo']} cuja placa é {car['placa'].upper()}, foi vendido no valor de"
+                      f" R$ {car['valor']} no dia {self.data_atual}.")
+                veiculo = car
+        Historico().save_transation(veiculo, cpf, valor, self.data_atual)
 
     @staticmethod
     def listar_info_veiculo(opcao, chassi):
@@ -70,8 +66,8 @@ class Veiculo:
 
 
 class Historico:
+
     @staticmethod
     def save_transation(info_veiculo, cpf, valor, data):
         historico_vendas.append({'infos veiculo': info_veiculo, 'cpf': cpf, 'valor de venda': valor,
                                  'data da venda': data})
-
