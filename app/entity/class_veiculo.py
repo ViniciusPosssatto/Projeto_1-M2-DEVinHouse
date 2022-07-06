@@ -1,5 +1,6 @@
 from datetime import date
 from uuid import uuid4
+
 from data.infos import carros, camionetes, motosTriciclos, historico_vendas
 
 
@@ -13,20 +14,22 @@ class Veiculo:
         self.valor = valor
         self.data_atual = date.today().strftime("%d/%m/%y")
         self.cpf = cpf
-        self.tipos_veiculos = ['carro', 'moto', 'camionete']
-        self.tipos_veiculos_2 = {'carro': carros, 'moto': motosTriciclos, 'camionete': camionetes}
+        self.tipos_veiculos = {'carro': carros, 'moto': motosTriciclos, 'camionete': camionetes}
 
     def vender_veiculo(self, opcao, chassi, cpf, valor):
-        if opcao not in self.tipos_veiculos_2:
-            print('Opção inválida.')
+        if opcao not in self.tipos_veiculos:
+            print('Opção de veículo inválida.')
         veiculo = None
-        for car in self.tipos_veiculos_2.get(opcao):
-            if chassi == car['chassi']:
-                car['cpf'] = cpf
-                print(f"O carro modelo {car['modelo']} cuja placa é {car['placa'].upper()}, foi vendido no valor de"
-                      f" R$ {car['valor']} no dia {self.data_atual}.")
-                veiculo = car
-        Historico().save_transation(veiculo, cpf, valor, self.data_atual)
+        for item in self.tipos_veiculos.get(opcao):
+            if chassi == item['chassi']:
+                item['cpf'] = cpf
+                print(f"O veiculo modelo {item['modelo']} cuja placa é {item['placa'].upper()}, foi vendido no valor de"
+                      f" R$ {item['valor']} no dia {self.data_atual}.")
+                veiculo = item
+                Historico().save_transation(veiculo, cpf, valor, self.data_atual, opcao)
+                self.tipos_veiculos.get(opcao).remove(item)
+            else:
+                print('Chassi não corresponde a um veiculo.')
 
     @staticmethod
     def listar_info_veiculo(opcao, chassi):
@@ -68,9 +71,9 @@ class Veiculo:
 class Historico:
 
     @staticmethod
-    def save_transation(info_veiculo, cpf, valor, data):
+    def save_transation(info_veiculo, cpf, valor, data, tipo):
         historico_vendas.append({'infos veiculo': info_veiculo, 'cpf': cpf, 'valor de venda': valor,
-                                 'data da venda': data})
+                                 'data da venda': data, 'tipo': tipo})
 
 
-print(str(uuid4()).split('-')[0])
+
