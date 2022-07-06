@@ -1,16 +1,16 @@
 from datetime import date
+from uuid import uuid4
 from data.infos import carros, camionetes, motosTriciclos, historico_vendas
 
 
 class Veiculo:
 
-    def __init__(self, chassi: str, data_fabr: str, modelo: str, placa: str, valor: int, cpf: int = 0):
-        self.chassi = chassi
+    def __init__(self, data_fabr: str, modelo: str, placa: str, valor: int, cpf: int = 0):
+        self.chassi = str(uuid4()).split('-')[0]
         self.data_fabr = data_fabr
         self.modelo = modelo
         self.placa = placa
         self.valor = valor
-        self.info_veiculo = []
         self.data_atual = date.today().strftime("%d/%m/%y")
         self.cpf = cpf
         self.tipos_veiculos = ['carro', 'moto', 'camionete']
@@ -71,3 +71,6 @@ class Historico:
     def save_transation(info_veiculo, cpf, valor, data):
         historico_vendas.append({'infos veiculo': info_veiculo, 'cpf': cpf, 'valor de venda': valor,
                                  'data da venda': data})
+
+
+print(str(uuid4()).split('-')[0])
