@@ -53,24 +53,16 @@ class Veiculo:
             else:
                 print('Veículo não encontrado.')
 
-    @staticmethod
-    def alterar_info_veiculo(opcao, chassi, type_info, nova_info):
-        if opcao == 'carro':
-            for car in carros:
-                if chassi == car['chassi']:
-                    if type_info == 'cor':
-                        car['cor'] = nova_info
-                        print(f'Alteração de cor de veículo carro para {nova_info}.')
-                    if type_info == 'valor':
-                        car['valor'] = nova_info
-        if opcao == 'moto':
-            for moto in motosTriciclos:
-                print(moto)
-        if opcao == 'camionete':
-            for camionete in camionetes:
-                print(camionete)
-        else:
-            print('Opção inválida.')
+    def alterar_info_veiculo(self, opcao, chassi, type_info, nova_info):
+        if opcao not in self.tipos_veiculos:
+            print('Opção de veículo inválida.')
+        for item in self.tipos_veiculos.get(opcao):
+            if chassi == item['chassi']:
+                if type_info == 'cor':
+                    item['cor'] = nova_info
+                    print(f"Alteração de cor de veículo {item['modelo']} para {nova_info}.")
+                if type_info == 'valor':
+                    item['valor'] = nova_info
 
 
 class Historico:
