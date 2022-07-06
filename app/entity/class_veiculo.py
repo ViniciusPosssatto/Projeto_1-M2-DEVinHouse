@@ -6,15 +6,21 @@ from data.infos import carros, camionetes, motosTriciclos, historico_vendas
 
 class Veiculo:
 
-    def __init__(self, data_fabr: str, modelo: str, placa: str, valor: int, cpf: int = 0):
+    def __init__(self):
         self.chassi = str(uuid4()).split('-')[0]
-        self.data_fabr = data_fabr
-        self.modelo = modelo
-        self.placa = placa
-        self.valor = valor
+        self.data_fabr = None
+        self.modelo = None
+        self.placa = None
+        self.valor = None
         self.data_atual = date.today().strftime("%d/%m/%y")
-        self.cpf = cpf
+        self.cpf = 0
         self.tipos_veiculos = {'carro': carros, 'moto': motosTriciclos, 'camionete': camionetes}
+
+    def cadastrar_veiculo(self):
+        self.modelo = input('Digite o modelo do veiculo: ')
+        self.placa = input('Digite a placa (ex: dtt5i67): ')
+        self.valor = input('Digite o valor: ')
+        self.data_fabr = input('Digite a data de fabricação [dd/mm/aa]: ')
 
     def vender_veiculo(self, opcao, chassi, cpf, valor):
         if opcao not in self.tipos_veiculos:
