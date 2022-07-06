@@ -1,8 +1,8 @@
 from datetime import date
 from uuid import uuid4
 
-from data.infos import carros, camionetes, motosTriciclos, historico_vendas
-
+from data.infos import carros, camionetes, motosTriciclos
+from entity.historico import Historico
 
 data_atual = date.today().strftime("%d/%m/%y")
 tipos_veiculos = {'carro': carros, 'moto': motosTriciclos, 'camionete': camionetes}
@@ -76,11 +76,3 @@ class Veiculo:
                     print(f"Alteração de cor de veículo {item['modelo']} para {nova_info}.")
                 if type_info == 'valor':
                     item['valor'] = nova_info
-
-
-class Historico:
-
-    @staticmethod
-    def save_transation(info_veiculo, cpf, valor, data, tipo):
-        historico_vendas.append({'infos veiculo': info_veiculo, 'cpf': cpf, 'valor de venda': valor,
-                                 'data da venda': data, 'tipo': tipo})
