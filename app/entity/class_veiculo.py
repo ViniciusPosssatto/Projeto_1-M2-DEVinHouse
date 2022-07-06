@@ -12,14 +12,16 @@ class Veiculo:
         self.modelo = None
         self.placa = None
         self.valor = None
-        self.data_atual = date.today().strftime("%d/%m/%y")
         self.cpf = 0
+        self.cor = None
+        self.data_atual = date.today().strftime("%d/%m/%y")
         self.tipos_veiculos = {'carro': carros, 'moto': motosTriciclos, 'camionete': camionetes}
 
     def cadastrar_veiculo(self):
         self.modelo = input('Digite o modelo do veiculo: ')
         self.placa = input('Digite a placa (ex: dtt5i67): ')
         self.valor = input('Digite o valor: ')
+        self.cor = input('Digite a cor predominante no veículo: ')
         self.data_fabr = input('Digite a data de fabricação [dd/mm/aa]: ')
 
     def vender_veiculo(self, opcao, chassi, cpf, valor):
@@ -37,7 +39,7 @@ class Veiculo:
             else:
                 print('Chassi não corresponde a um veiculo.')
 
-    def listar_info_veiculo(, self, opcao, chassi):
+    def listar_info_veiculo(self, opcao, chassi):
         if opcao not in self.tipos_veiculos:
             print('Opção de veículo inválida.')
         for item in self.tipos_veiculos.get(opcao):
@@ -77,6 +79,3 @@ class Historico:
     def save_transation(info_veiculo, cpf, valor, data, tipo):
         historico_vendas.append({'infos veiculo': info_veiculo, 'cpf': cpf, 'valor de venda': valor,
                                  'data da venda': data, 'tipo': tipo})
-
-
-
