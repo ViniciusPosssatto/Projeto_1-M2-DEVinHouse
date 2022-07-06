@@ -1,4 +1,5 @@
 from entity.class_veiculo import Veiculo
+
 from data.infos import motosTriciclos
 
 
