@@ -41,4 +41,25 @@ class RetornaInfos:
                       f"cavalos de potência. A placa é {item['placa'].upper()} e o valor: R$ {item['valor']}. "
                       f"Foi fabricado em {item['data-fabricação']} na cor {item['cor']}. O tamanho da caçamba é de "
                       f"{item['cacamba']} litros e a numeração do chassi é {item['chassi']}.")
-    
+
+    @staticmethod
+    def retorna_vendido_maior_valor():
+        maior = 0
+        item = ' '
+        for i in historico_vendas:
+            if i['valor de venda'] > maior:
+                maior = i['valor de venda']
+                item = i
+        return print(f"O veículo vendido pelo maior valor foi um(a) {item['tipo']}, modelo "
+                     f"{item['infos veiculo']['modelo']}, no valor de R${item['valor de venda']}")
+
+    @staticmethod
+    def retorna_vendido_menor_valor():
+        menor = 999999999
+        item = ' '
+        for i in historico_vendas:
+            if i['valor de venda'] < menor:
+                menor = i['valor de venda']
+                item = i
+        return print(f"O veículo vendido pelo menor valor foi um(a) {item['tipo']}, modelo "
+                     f"{item['infos veiculo']['modelo']}, no valor de R${item['valor de venda']}")
