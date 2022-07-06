@@ -10,21 +10,14 @@ tipos_veiculos = {'carro': carros, 'moto': motosTriciclos, 'camionete': camionet
 
 class Veiculo:
 
-    def __init__(self):
+    def __init__(self, data_fabr: str, modelo: str, placa: str, valor: int, cor: str):
         self.chassi = str(uuid4()).split('-')[0]
-        self.data_fabr = None
-        self.modelo = None
-        self.placa = None
-        self.valor = None
+        self.data_fabr = data_fabr
+        self.modelo = modelo
+        self.placa = placa
+        self.valor = valor
+        self.cor = cor
         self.cpf = 0
-        self.cor = None
-
-    def cadastrar_veiculo(self):
-        self.modelo = input('Digite o modelo do veiculo: ')
-        self.placa = input('Digite a placa (ex: dtt5i67): ')
-        self.valor = input('Digite o valor: ')
-        self.cor = input('Digite a cor predominante no veículo: ')
-        self.data_fabr = input('Digite a data de fabricação [dd/mm/aa]: ')
 
     @staticmethod
     def vender_veiculo(opcao, chassi, cpf, valor):
