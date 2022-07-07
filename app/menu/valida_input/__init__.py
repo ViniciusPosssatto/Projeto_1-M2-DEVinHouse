@@ -81,3 +81,40 @@ def validar_combustivel_carro():
     except Exception:
         print("Combustível deve ser 'flex' ou 'gasolina'.")
         return validar_combustivel_carro()
+
+
+def validar_potencia():
+    true = False
+    while True:
+        potencia = input('Digite a potência do veículo: ')
+        if potencia.isnumeric():
+            true = True
+        else:
+            print('O valor deve ser um número inteiro.')
+        if true:
+            break
+    return int(potencia)
+
+
+def validar_valor():
+    valor = ' '
+    try:
+        while not valor.isnumeric():
+            valor = float(input('Digite o valor: R$ '))
+            return int(valor)
+    except Exception:
+        print('O valor deve ser numérico.')
+        return validar_valor()
+
+
+def validar_cacamba():
+    valor = 0
+    try:
+        while not int(valor):
+            valor = input('Qual o tamanho da caçamba(litros): ')
+            return int(valor)
+    except Exception:
+        print('O valor deve ser numérico.')
+        return validar_cacamba()
+
+

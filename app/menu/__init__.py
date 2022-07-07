@@ -1,7 +1,7 @@
 from entity import Veiculo, MotoTriciclo, Carro, Camionete, RetornaInfos
 from menu_options import MenuOptions
 from valida_input import validar_data, validar_placa, validar_portas, validar_rodas, validar_combustivel_camionete, \
-    validar_combustivel_carro
+    validar_combustivel_carro, validar_potencia, validar_valor, validar_cacamba
 
 
 class Menu:
@@ -24,9 +24,9 @@ class Menu:
                         """Cadastrar MOTO/TRICICLO"""
                         modelo = input('Digite nome do modelo: ')
                         rodas = validar_rodas()
-                        potencia = int(input('Digite a potencia: '))
+                        potencia = validar_potencia()
                         placa = validar_placa('moto')
-                        valor = int(input('Digite o valor: R$ '))
+                        valor = validar_valor()
                         data = validar_data()
                         cor = input('Digite a cor predominante: ')
                         MotoTriciclo(potencia=potencia, rodas=rodas, data_fabr=data, modelo=modelo, placa=placa,
@@ -36,9 +36,9 @@ class Menu:
                         """Cadastrar CARRO"""
                         modelo = input('Digite nome do modelo: ')
                         portas = validar_portas()
-                        potencia = int(input('Digite a potência: '))
+                        potencia = validar_potencia()
                         placa = validar_placa('carro')
-                        valor = int(input('Digite o valor: R$ '))
+                        valor = validar_valor()
                         data = validar_data()
                         cor = input('Digite a cor predominante: ')
                         combustivel = validar_combustivel_carro()
@@ -50,13 +50,13 @@ class Menu:
                         """Cadastrar CAMIONETE"""
                         modelo = input('Digite nome do modelo: ')
                         portas = validar_portas()
-                        potencia = int(input('Digite a potência: '))
+                        potencia = validar_potencia()
                         placa = validar_placa('camionete')
-                        valor = int(input('Digite o valor: R$ '))
+                        valor = validar_valor()
                         data = validar_data()
                         cor = input('Digite a cor predominante: ')
                         combustivel = validar_combustivel_camionete()
-                        cacamba = int(input('Qual o tamanho da caçamba(litros): '))
+                        cacamba = validar_cacamba()
                         Camionete(potencia=potencia, portas=portas, data_fabr=data, modelo=modelo, placa=placa,
                                   valor=valor, combustivel=combustivel, cacamba=cacamba, cor=cor).salvar_camionete()
                         print('Cadastro de veículo concluído.')
