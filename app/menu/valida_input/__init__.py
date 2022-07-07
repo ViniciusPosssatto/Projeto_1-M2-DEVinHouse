@@ -10,7 +10,7 @@ def validar_data():
     atual_day = date.today().day
     day_count_for_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     try:
-        data = input('Digite a data de fabricação [ dd/mm/aa ]: ')
+        data = input('Digite a data de fabricação [ dd/mm/aaaa ]: ')
         d = data.split('/')[0]
         m = data.split('/')[1]
         y = data.split('/')[2]
@@ -26,7 +26,7 @@ def validar_data():
 
 def validar_placa(opcao):
     placa_valida = '[A-Z]{3}[0-9][0-9A-Z][0-9]{2}'
-    placa = input('Digite a placa [ AAA11A11 ]: ').upper()
+    placa = input('Digite a placa [ AAA11A11 ]: ').strip().upper()
     if re.match(placa_valida, placa):
         for item in tipos_veiculos.get(opcao):
             if placa != item['placa']:
@@ -117,4 +117,32 @@ def validar_options(opt):
         return sub_option
     except Exception:
         return validar_options(opt)
+
+
+def validar_opcao():
+    opcao = ' '
+    while opcao not in ['moto', 'carro', 'camionete']:
+        opcao = input('Informe qual tipo de veículo [moto, carro, camionete]: ')
+    return opcao
+
+
+def validar_chassi(opt):
+    chassi = input('Digite a numeração do chassi: ')
+    for item in tipos_veiculos.get(opt):
+        if chassi == item['chassi']:
+            return True
+    else:
+        return validar_chassi(opt)
+
+
+def validar_cpf():
+    cpf = ' '
+    try:
+        while len(cpf) != 11:
+            cpf = input('Digite o CPF do comprador: ')
+        return int(cpf)
+    except Exception:
+        print('CPF não é válido! Tente novamente.')
+        return validar_cpf()
+
 

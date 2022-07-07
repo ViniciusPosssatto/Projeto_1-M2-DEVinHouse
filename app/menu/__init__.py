@@ -1,7 +1,7 @@
 from entity import Veiculo, MotoTriciclo, Carro, Camionete, RetornaInfos
 from menu_options import MenuOptions
 from valida_input import validar_data, validar_placa, validar_portas, validar_rodas, validar_combustivel, \
-    validar_potencia, validar_valor, validar_cacamba, validar_options
+    validar_potencia, validar_valor, validar_cacamba, validar_options, validar_chassi, validar_opcao, validar_cpf
 
 
 class Menu:
@@ -84,10 +84,10 @@ class Menu:
 
                 if option == 3:
                     """Vender veículo."""
-                    opcao = input('Informe qual tipo de veículo: ')
-                    chassi = input('Digite a numeração do chassi: ')
-                    cpf = input('Digite o CPF do comprador: ')
-                    valor = int(input('Informe o valor de venda: R$ '))
+                    opcao = validar_opcao()
+                    chassi = validar_chassi(opcao)
+                    cpf = validar_cpf()
+                    valor = validar_valor()
                     Veiculo.vender_veiculo(chassi=chassi, cpf=cpf, opcao=opcao, valor=valor)
 
                 if option == 4:
@@ -97,15 +97,15 @@ class Menu:
                         sub_option = ' '
                         validar_options('d')
                         if sub_option == 1:
-                            opcao = input('Qual tipo de veículo deseja alterar: ')
-                            chassi = input('Digite a numeração do chassi: ')
+                            opcao = validar_opcao()
+                            chassi = validar_chassi(opcao)
                             cor = int(input('Digite a nova cor: '))
                             Veiculo.alterar_info_veiculo(opcao=opcao, chassi=chassi, type_info='cor', nova_info=cor)
                             print('Cor alterada com sucesso!')
                         if sub_option == 2:
-                            opcao = input('Qual tipo de veículo deseja alterar: ')
-                            chassi = input('Digite a numeração do chassi: ')
-                            valor = int(input('Digite o novo valor: R$ '))
+                            opcao = validar_opcao()
+                            chassi = validar_chassi(opcao)
+                            valor = validar_valor()
                             Veiculo.alterar_info_veiculo(opcao=opcao, chassi=chassi, type_info='valor', nova_info=valor)
                             print('Valor alterado com sucesso!')
                         if sub_option == 0:
