@@ -1,4 +1,4 @@
-from entity import Veiculo, MotoTriciclo, Carro, Camionete, Historico, RetornaInfos
+from entity import Veiculo, MotoTriciclo, Carro, Camionete, RetornaInfos
 from menu_options import MenuOptions
 
 
@@ -112,13 +112,13 @@ class Menu:
                         MenuOptions.vendas_realizadas()
                         sub_option = ' '
                         while sub_option not in [1, 2, 3, 0]:
-                            option = int(input('Digite a opção desejada: '))
+                            sub_option = int(input('Digite a opção desejada: '))
                         if sub_option == 1:
-                            pass
+                            RetornaInfos.retorna_todas_vendas()
                         if sub_option == 2:
-                            pass
+                            RetornaInfos.retorna_vendido_maior_valor()
                         if sub_option == 3:
-                            pass
+                            RetornaInfos.retorna_vendido_menor_valor()
                         if sub_option == 0:
                             break
 
@@ -127,7 +127,17 @@ class Menu:
                         MenuOptions.veiculos_disponiveis()
                         sub_option = ' '
                         while sub_option not in [1, 2, 3, 4, 0]:
-                            option = int(input('Digite a opção desejada: '))
+                            sub_option = int(input('Digite a opção desejada: '))
+                        if sub_option == 1:
+                            RetornaInfos.retorna_todos_disponiveis()
+                        if sub_option == 2:
+                            RetornaInfos.retorna_veiculos_por_tipo('moto')
+                        if sub_option == 3:
+                            RetornaInfos.retorna_veiculos_por_tipo('carro')
+                        if sub_option == 4:
+                            RetornaInfos.retorna_veiculos_por_tipo('camionete')
+                        if sub_option == 0:
+                            break
                     if option == 0:
                         break
 

@@ -66,6 +66,7 @@ class MenuOptions:
 
     @staticmethod
     def historico():
+        """OPCAO 5 dashboard"""
         print("""
             Histórico da empresa:
             
@@ -77,6 +78,7 @@ class MenuOptions:
 
     @staticmethod
     def vendas_realizadas():
+        """OPCAO 1 Historico da empresa"""
         print("""
             Vendas realizadas:
 
@@ -89,6 +91,7 @@ class MenuOptions:
 
     @staticmethod
     def veiculos_disponiveis():
+        """OPCAO 2 historico da empresa"""
         print("""
             Veículos disponíveis
 
