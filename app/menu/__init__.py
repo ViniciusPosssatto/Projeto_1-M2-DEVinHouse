@@ -1,6 +1,6 @@
 from entity import Veiculo, MotoTriciclo, Carro, Camionete, RetornaInfos
 from menu_options import MenuOptions
-from valida_input import validar_data
+from valida_input import validar_data, validar_placa, validar_portas, validar_rodas
 
 
 class Menu:
@@ -22,9 +22,9 @@ class Menu:
                     if sub_option == 1:
                         """Cadastrar MOTO/TRICICLO"""
                         modelo = input('Digite nome do modelo: ')
-                        rodas = int(input('Digite o número de rodas: '))
+                        rodas = validar_rodas()
                         potencia = int(input('Digite a potencia: '))
-                        placa = input('Digite a placa [ AAA11A11 ]: ').upper()
+                        placa = validar_placa('moto')
                         valor = int(input('Digite o valor: R$ '))
                         data = validar_data()
                         cor = input('Digite a cor predominante: ')
@@ -34,13 +34,13 @@ class Menu:
                     if sub_option == 2:
                         """Cadastrar CARRO"""
                         modelo = input('Digite nome do modelo: ')
-                        portas = int(input('Digite o número de portas: '))
+                        portas = validar_portas()
                         potencia = int(input('Digite a potência: '))
-                        placa = input('Digite a placa [ AAA11A11 ]: ').upper()
+                        placa = validar_placa('carro')
                         valor = int(input('Digite o valor: R$ '))
                         data = validar_data()
                         cor = input('Digite a cor predominante: ')
-                        combustivel = input('Qual o tipo de combustível(flex/gasolina): ')
+                        combustivel = v
 
                         Carro(potencia=potencia, portas=portas, data_fabr=data, modelo=modelo, placa=placa, valor=valor,
                               combustivel=combustivel, cor=cor).salvar_carro()
@@ -48,9 +48,9 @@ class Menu:
                     if sub_option == 3:
                         """Cadastrar CAMIONETE"""
                         modelo = input('Digite nome do modelo: ')
-                        portas = int(input('Digite o número de portas: '))
+                        portas = validar_portas()
                         potencia = int(input('Digite a potência: '))
-                        placa = input('Digite a placa [ AAA11A11 ]: ').upper()
+                        placa = validar_placa('camionete')
                         valor = int(input('Digite o valor: R$ '))
                         data = validar_data()
                         cor = input('Digite a cor predominante: ')

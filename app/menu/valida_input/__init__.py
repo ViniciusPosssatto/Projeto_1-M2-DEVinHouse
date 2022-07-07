@@ -1,4 +1,7 @@
 from datetime import date
+import re
+
+from entity.class_veiculo import tipos_veiculos
 
 
 def validar_data():
@@ -19,3 +22,40 @@ def validar_data():
     except Exception as error:
         print(f'Formatação inválida.')
         validar_data()
+
+
+def validar_placa(opcao):
+    placa_valida = '[A-Z]{3}[0-9][0-9A-Z][0-9]{2}'
+    placa = input('Digite a placa [ AAA11A11 ]: ').upper()
+    if re.match(placa_valida, placa):
+        for item in tipos_veiculos.get(opcao):
+            if placa != item['placa']:
+                return placa
+            else:
+                print('Placa já atribuída a um veículo.')
+                return validar_placa(opcao)
+    else:
+        print('Formato de placa inválida.')
+        return validar_placa(opcao)
+
+
+def validar_rodas():
+    rodas = ' '
+    try:
+        while rodas not in [2, 3]:
+            rodas = int(input('Digite o número de rodas [2 ou 3]: '))
+        return rodas
+    except Exception:
+        print('Valor deve ser numérico.')
+        return validar_rodas()
+
+
+def validar_portas():
+    portas = ' '
+    try:
+        while portas not in [2, 3]:
+            portas = int(input('Digite o número de rodas [2 ou 3]: '))
+        return portas
+    except Exception:
+        print('Valor deve ser numérico.')
+        return validar_portas()
