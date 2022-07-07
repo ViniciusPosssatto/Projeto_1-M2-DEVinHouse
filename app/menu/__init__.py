@@ -59,20 +59,29 @@ class Menu:
                 if option == 2:
                     """Listar informações de veículo."""
                     sub_option = ' '
-                    while sub_option not in [1, 2, 3, 0]:
-                        option = int(input('Digite a opção desejada: '))
+                    while sub_option not in [1, 2, 3, 4, 0]:
+                        sub_option = int(input('Digite a opção desejada: '))
                     if sub_option == 1:
-                        pass
+                        chassi = input('Digite a numeração do chassi: ')
+                        Veiculo.listar_info_veiculo('moto', chassi)
                     if sub_option == 2:
-                        pass
+                        chassi = input('Digite a numeração do chassi: ')
+                        Veiculo.listar_info_veiculo('carro', chassi)
                     if sub_option == 3:
-                        pass
+                        chassi = input('Digite a numeração do chassi: ')
+                        Veiculo.listar_info_veiculo('camionete', chassi)
+                    if sub_option == 4:
+                        RetornaInfos.retorna_todos_disponiveis()
                     if sub_option == 0:
                         break
 
                 if option == 3:
                     """Vender veículo."""
-                    # Veiculo.vender_veiculo()
+                    opcao = input('Informe qual tipo de veículo: ')
+                    chassi = input('Digite a numeração do chassi: ')
+                    cpf = input('Digite o CPF do comprador: ')
+                    valor = int(input('Informe o valor de venda: R$ '))
+                    Veiculo.vender_veiculo(chassi=chassi, cpf=cpf, opcao=opcao, valor=valor)
 
                 if option == 4:
                     """Alterar dados de veículo."""

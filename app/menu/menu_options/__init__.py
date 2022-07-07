@@ -25,51 +25,53 @@ class MenuOptions:
     def cadastro_veiculo():
         """OPCAO 1 dashboard"""
         print("""
-                Cadastro de veículos:
+            Cadastro de veículos:
 
-                    Opções:
-                    [1] Cadastrar Moto/Triciclo
-                    [2] Cadastrar Carro
-                    [3] Cadastrar Camionete
-                    [0] Voltar\n
-                    """)
+                Opções:
+                [1] Cadastrar Moto/Triciclo
+                [2] Cadastrar Carro
+                [3] Cadastrar Camionete
+                [0] Voltar\n
+                """)
 
     @staticmethod
     def listar_infos():
         print("""
-               Listar informações de veículos:
-               "Lembre-se de ter em mãos o chassi do veículo"
+           Listar informações de veículos:
+           "Para acessar o número do chassi do veículo, 
+            utilize a opção [4]'Consultar veículos'."
 
-                   Opções:
-                   [1] Iformações de Moto/Triciclo
-                   [2] Informações de Carro
-                   [3] Informações de Camionete
-                   [0] Voltar\n
-                   """)
+               Opções:
+               [1] Iformações de Moto/Triciclo
+               [2] Informações de Carro
+               [3] Informações de Camionete
+               [4] Consultar veículos
+               [0] Voltar\n
+               """)
 
     @staticmethod
     def historico():
         """OPCAO 5 dashboard"""
         print("""
-                   Histórico da empresa:
-
-                       Opções:
-                       [1] Vendas realizadas
-                       [2] Veículos disponíveis
-                       [0] Voltar\n
-                       """)
+            Histórico da empresa:
+            
+            Opções:
+            [1] Vendas realizadas
+            [2] Veículos disponíveis
+            [0] Voltar\n
+            """)
 
     @staticmethod
     def vendas_realizadas():
         print("""
             Vendas realizadas:
 
-               Opções:
-               [1] Todas as vendas
-               [2] Venda de maior valor
-               [3] Venda de menor valor
-               [0] Voltar\n
-               """)
+                Opções:
+                [1] Todas as vendas
+                [2] Venda de maior valor
+                [3] Venda de menor valor
+                [0] Voltar\n
+                """)
 
     @staticmethod
     def veiculos_disponiveis():

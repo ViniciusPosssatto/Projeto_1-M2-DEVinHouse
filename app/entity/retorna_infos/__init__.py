@@ -14,13 +14,13 @@ class RetornaInfos:
     def retorna_todos_disponiveis():
         for i in motosTriciclos:
             print(f"Moto/triciclo modelo {i['modelo']}, fabricado em {i['data-fabricação']}, com valor base de "
-                  f"R$ {i['valor']}.")
+                  f"R$ {i['valor']}. Númeração do chassi: {i['chassi']}.")
         for i in carros:
             print(f"Carro modelo {i['modelo']}, fabricado em {i['data-fabricação']}, com valor base de "
-                  f"R$ {i['valor']}.")
+                  f"R$ {i['valor']}. Númeração do chassi: {i['chassi']}.")
         for i in camionetes:
             print(f"Camionete modelo {i['modelo']}, fabricado em {i['data-fabricação']}, com valor base de "
-                  f"R$ {i['valor']}.")
+                  f"R$ {i['valor']}. Númeração do chassi: {i['chassi']}.")
 
     @staticmethod
     def retorna_veiculos_por_tipo(tipo):
