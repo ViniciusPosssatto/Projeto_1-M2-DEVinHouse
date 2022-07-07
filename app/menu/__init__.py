@@ -1,5 +1,6 @@
 from entity import Veiculo, MotoTriciclo, Carro, Camionete, RetornaInfos
 from menu_options import MenuOptions
+from valida_input import validar_data
 
 
 class Menu:
@@ -25,21 +26,25 @@ class Menu:
                         potencia = int(input('Digite a potencia: '))
                         placa = input('Digite a placa [ AAA11A11 ]: ').upper()
                         valor = int(input('Digite o valor: R$ '))
-                        data = input('Digite a data de fabricação [ dd/mm/aa ]: ')
+                        data = validar_data()
                         cor = input('Digite a cor predominante: ')
                         MotoTriciclo(potencia=potencia, rodas=rodas, data_fabr=data, modelo=modelo, placa=placa,
                                      valor=valor, cor=cor).salvar_mototriciclo()
+                        print('Cadastro de veículo concluído.')
                     if sub_option == 2:
                         """Cadastrar CARRO"""
                         modelo = input('Digite nome do modelo: ')
-                        rodas = int(input('Digite o número de rodas: '))
-                        potencia = int(input('Digite a potencia: '))
+                        portas = int(input('Digite o número de portas: '))
+                        potencia = int(input('Digite a potência: '))
                         placa = input('Digite a placa [ AAA11A11 ]: ').upper()
                         valor = int(input('Digite o valor: R$ '))
-                        data = input('Digite a data de fabricação [ dd/mm/aa ]: ')
+                        data = validar_data()
                         cor = input('Digite a cor predominante: ')
-                        MotoTriciclo(potencia=potencia, rodas=rodas, data_fabr=data, modelo=modelo, placa=placa,
-                                     valor=valor, cor=cor).salvar_mototriciclo()
+                        combustivel = input('Qual o tipo de combustível(flex/gasolina): ')
+
+                        Carro(potencia=potencia, portas=portas, data_fabr=data, modelo=modelo, placa=placa, valor=valor,
+                              combustivel=combustivel, cor=cor).salvar_carro()
+                        print('Cadastro de veículo concluído.')
                     if sub_option == 3:
                         """Cadastrar CAMIONETE"""
                         modelo = input('Digite nome do modelo: ')
@@ -47,12 +52,13 @@ class Menu:
                         potencia = int(input('Digite a potência: '))
                         placa = input('Digite a placa [ AAA11A11 ]: ').upper()
                         valor = int(input('Digite o valor: R$ '))
-                        data = input('Digite a data de fabricação [ dd/mm/aa ]: ')
+                        data = validar_data()
                         cor = input('Digite a cor predominante: ')
                         combustivel = input('Qual o tipo de combustível(diesel/gasolina): ')
                         cacamba = int(input('Qual o tamanho da caçamba(litros): '))
-                        Camionete(potencia=potencia, portas=portas, data_fabr=data, modelo=modelo, placa=placa, valor=valor,
-                                  combustivel=combustivel, cacamba=cacamba, cor=cor).salvar_camionete()
+                        Camionete(potencia=potencia, portas=portas, data_fabr=data, modelo=modelo, placa=placa,
+                                  valor=valor, combustivel=combustivel, cacamba=cacamba, cor=cor).salvar_camionete()
+                        print('Cadastro de veículo concluído.')
                     if sub_option == 0:
                         break
 
