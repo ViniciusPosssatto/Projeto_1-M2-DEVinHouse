@@ -108,3 +108,13 @@ def validar_cacamba():
         return validar_cacamba()
 
 
+def validar_options(opt):
+    sub_option = ' '
+    options = {'a': [1, 2, 3, 4, 5, 0], 'b': [1, 2, 3, 4, 0], 'c': [1, 2, 3, 0], 'd': [1, 2, 0]}
+    try:
+        while sub_option not in options.get(opt):
+            sub_option = int(input('Digite a opção desejada: '))
+        return sub_option
+    except Exception:
+        return validar_options(opt)
+

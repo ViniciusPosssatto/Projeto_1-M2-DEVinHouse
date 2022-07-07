@@ -55,8 +55,9 @@ class Veiculo:
                           f"cavalos de potência. A placa é {item['placa'].upper()} e o valor: R$ {item['valor']}. "
                           f"Foi fabricado em {item['data-fabricação']} na cor {item['cor']}. O tamanho da caçamba é de "
                           f"{item['cacamba']} litros e a numeração do chassi é {item['chassi']}.")
-            else:
-                print('Veículo não encontrado.')
+                return True
+        else:
+            print('Veículo não encontrado. Verifique a numeração do chassi e tente novamente.')
 
     @staticmethod
     def alterar_info_veiculo(opcao, chassi, type_info, nova_info):

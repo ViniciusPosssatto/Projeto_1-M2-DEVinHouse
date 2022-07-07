@@ -1,7 +1,7 @@
 from entity import Veiculo, MotoTriciclo, Carro, Camionete, RetornaInfos
 from menu_options import MenuOptions
 from valida_input import validar_data, validar_placa, validar_portas, validar_rodas, validar_combustivel, \
-    validar_potencia, validar_valor, validar_cacamba
+    validar_potencia, validar_valor, validar_cacamba, validar_options
 
 
 class Menu:
@@ -16,71 +16,71 @@ class Menu:
                     option = int(input('Digite a opção desejada: '))
                 if option == 1:
                     """Cadastrar veículo."""
-                    MenuOptions.cadastro_veiculo()
-                    sub_option = ' '
-                    while sub_option not in [1, 2, 3, 0]:
-                        sub_option = int(input('Digite a opção desejada: '))
-                    if sub_option == 1:
-                        """Cadastrar MOTO/TRICICLO"""
-                        modelo = input('Digite nome do modelo: ')
-                        rodas = validar_rodas()
-                        potencia = validar_potencia()
-                        placa = validar_placa('moto')
-                        valor = validar_valor()
-                        data = validar_data()
-                        cor = input('Digite a cor predominante: ')
-                        MotoTriciclo(potencia=potencia, rodas=rodas, data_fabr=data, modelo=modelo, placa=placa,
-                                     valor=valor, cor=cor).salvar_mototriciclo()
-                        print('Cadastro de veículo concluído.')
-                    if sub_option == 2:
-                        """Cadastrar CARRO"""
-                        modelo = input('Digite nome do modelo: ')
-                        portas = validar_portas()
-                        potencia = validar_potencia()
-                        placa = validar_placa('carro')
-                        valor = validar_valor()
-                        data = validar_data()
-                        cor = input('Digite a cor predominante: ')
-                        combustivel = validar_combustivel()
+                    while True:
+                        MenuOptions.cadastro_veiculo()
+                        sub_option = ' '
+                        validar_options('c')
+                        if sub_option == 1:
+                            """Cadastrar MOTO/TRICICLO"""
+                            modelo = input('Digite nome do modelo: ')
+                            rodas = validar_rodas()
+                            potencia = validar_potencia()
+                            placa = validar_placa('moto')
+                            valor = validar_valor()
+                            data = validar_data()
+                            cor = input('Digite a cor predominante: ')
+                            MotoTriciclo(potencia=potencia, rodas=rodas, data_fabr=data, modelo=modelo, placa=placa,
+                                         valor=valor, cor=cor).salvar_mototriciclo()
+                            print('Cadastro de veículo concluído.')
+                        if sub_option == 2:
+                            """Cadastrar CARRO"""
+                            modelo = input('Digite nome do modelo: ')
+                            portas = validar_portas()
+                            potencia = validar_potencia()
+                            placa = validar_placa('carro')
+                            valor = validar_valor()
+                            data = validar_data()
+                            cor = input('Digite a cor predominante: ')
+                            combustivel = validar_combustivel('carro')
 
-                        Carro(potencia=potencia, portas=portas, data_fabr=data, modelo=modelo, placa=placa, valor=valor,
-                              combustivel=combustivel, cor=cor).salvar_carro()
-                        print('Cadastro de veículo concluído.')
-                    if sub_option == 3:
-                        """Cadastrar CAMIONETE"""
-                        modelo = input('Digite nome do modelo: ')
-                        portas = validar_portas()
-                        potencia = validar_potencia()
-                        placa = validar_placa('camionete')
-                        valor = validar_valor()
-                        data = validar_data()
-                        cor = input('Digite a cor predominante: ')
-                        combustivel = validar_combustivel()
-                        cacamba = validar_cacamba()
-                        Camionete(potencia=potencia, portas=portas, data_fabr=data, modelo=modelo, placa=placa,
-                                  valor=valor, combustivel=combustivel, cacamba=cacamba, cor=cor).salvar_camionete()
-                        print('Cadastro de veículo concluído.')
-                    if sub_option == 0:
-                        break
+                            Carro(potencia=potencia, portas=portas, data_fabr=data, modelo=modelo, placa=placa, valor=valor,
+                                  combustivel=combustivel, cor=cor).salvar_carro()
+                            print('Cadastro de veículo concluído.')
+                        if sub_option == 3:
+                            """Cadastrar CAMIONETE"""
+                            modelo = input('Digite nome do modelo: ')
+                            portas = validar_portas()
+                            potencia = validar_potencia()
+                            placa = validar_placa('camionete')
+                            valor = validar_valor()
+                            data = validar_data()
+                            cor = input('Digite a cor predominante: ')
+                            combustivel = validar_combustivel('camionete')
+                            cacamba = validar_cacamba()
+                            Camionete(potencia=potencia, portas=portas, data_fabr=data, modelo=modelo, placa=placa,
+                                      valor=valor, combustivel=combustivel, cacamba=cacamba, cor=cor).salvar_camionete()
+                            print('Cadastro de veículo concluído.')
+                        if sub_option == 0:
+                            break
 
                 if option == 2:
                     """Listar informações de veículo."""
-                    sub_option = ' '
-                    while sub_option not in [1, 2, 3, 4, 0]:
-                        sub_option = int(input('Digite a opção desejada: '))
-                    if sub_option == 1:
-                        chassi = input('Digite a numeração do chassi: ')
-                        Veiculo.listar_info_veiculo('moto', chassi)
-                    if sub_option == 2:
-                        chassi = input('Digite a numeração do chassi: ')
-                        Veiculo.listar_info_veiculo('carro', chassi)
-                    if sub_option == 3:
-                        chassi = input('Digite a numeração do chassi: ')
-                        Veiculo.listar_info_veiculo('camionete', chassi)
-                    if sub_option == 4:
-                        RetornaInfos.retorna_todos_disponiveis()
-                    if sub_option == 0:
-                        break
+                    while True:
+                        sub_option = ' '
+                        validar_options('b')
+                        if sub_option == 1:
+                            chassi = input('Digite a numeração do chassi: ')
+                            Veiculo.listar_info_veiculo('moto', chassi)
+                        if sub_option == 2:
+                            chassi = input('Digite a numeração do chassi: ')
+                            Veiculo.listar_info_veiculo('carro', chassi)
+                        if sub_option == 3:
+                            chassi = input('Digite a numeração do chassi: ')
+                            Veiculo.listar_info_veiculo('camionete', chassi)
+                        if sub_option == 4:
+                            RetornaInfos.retorna_todos_disponiveis()
+                        if sub_option == 0:
+                            break
 
                 if option == 3:
                     """Vender veículo."""
@@ -92,59 +92,59 @@ class Menu:
 
                 if option == 4:
                     """Alterar dados de veículo."""
-                    MenuOptions.altera_info_veiculo()
-                    sub_option = ' '
-                    while sub_option not in [1, 2, 0]:
-                        sub_option = int(input('Digite a opção desejada: '))
-                    if sub_option == 1:
-                        opcao = input('Qual tipo de veículo deseja alterar: ')
-                        chassi = input('Digite a numeração do chassi: ')
-                        cor = int(input('Digite a nova cor: '))
-                        Veiculo.alterar_info_veiculo(opcao=opcao, chassi=chassi, type_info='cor', nova_info=cor)
-                        print('Cor alterada com sucesso!')
-                    if sub_option == 2:
-                        opcao = input('Qual tipo de veículo deseja alterar: ')
-                        chassi = input('Digite a numeração do chassi: ')
-                        valor = int(input('Digite o novo valor: R$ '))
-                        Veiculo.alterar_info_veiculo(opcao=opcao, chassi=chassi, type_info='valor', nova_info=valor)
-                        print('Valor alterado com sucesso!')
-                    if sub_option == 0:
-                        break
+                    while True:
+                        MenuOptions.altera_info_veiculo()
+                        sub_option = ' '
+                        validar_options('d')
+                        if sub_option == 1:
+                            opcao = input('Qual tipo de veículo deseja alterar: ')
+                            chassi = input('Digite a numeração do chassi: ')
+                            cor = int(input('Digite a nova cor: '))
+                            Veiculo.alterar_info_veiculo(opcao=opcao, chassi=chassi, type_info='cor', nova_info=cor)
+                            print('Cor alterada com sucesso!')
+                        if sub_option == 2:
+                            opcao = input('Qual tipo de veículo deseja alterar: ')
+                            chassi = input('Digite a numeração do chassi: ')
+                            valor = int(input('Digite o novo valor: R$ '))
+                            Veiculo.alterar_info_veiculo(opcao=opcao, chassi=chassi, type_info='valor', nova_info=valor)
+                            print('Valor alterado com sucesso!')
+                        if sub_option == 0:
+                            break
 
                 if option == 5:
                     """Histórico da empresa."""
-                    MenuOptions.historico()
-                    if option == 1:
-                        """Vendas realizadas"""
-                        MenuOptions.vendas_realizadas()
-                        sub_option = ' '
-                        while sub_option not in [1, 2, 3, 0]:
-                            sub_option = int(input('Digite a opção desejada: '))
-                        if sub_option == 1:
-                            RetornaInfos.retorna_todas_vendas()
-                        if sub_option == 2:
-                            RetornaInfos.retorna_vendido_maior_valor()
-                        if sub_option == 3:
-                            RetornaInfos.retorna_vendido_menor_valor()
-                        if sub_option == 0:
-                            break
+                    while True:
+                        MenuOptions.historico()
+                        if option == 1:
+                            """Vendas realizadas"""
+                            MenuOptions.vendas_realizadas()
+                            sub_option = ' '
+                            validar_options('c')
+                            if sub_option == 1:
+                                RetornaInfos.retorna_todas_vendas()
+                            if sub_option == 2:
+                                RetornaInfos.retorna_vendido_maior_valor()
+                            if sub_option == 3:
+                                RetornaInfos.retorna_vendido_menor_valor()
+                            if sub_option == 0:
+                                break
 
                     if option == 2:
                         """Veículos disponíveis"""
-                        MenuOptions.veiculos_disponiveis()
-                        sub_option = ' '
-                        while sub_option not in [1, 2, 3, 4, 0]:
-                            sub_option = int(input('Digite a opção desejada: '))
-                        if sub_option == 1:
-                            RetornaInfos.retorna_todos_disponiveis()
-                        if sub_option == 2:
-                            RetornaInfos.retorna_veiculos_por_tipo('moto')
-                        if sub_option == 3:
-                            RetornaInfos.retorna_veiculos_por_tipo('carro')
-                        if sub_option == 4:
-                            RetornaInfos.retorna_veiculos_por_tipo('camionete')
-                        if sub_option == 0:
-                            break
+                        while True:
+                            MenuOptions.veiculos_disponiveis()
+                            sub_option = ' '
+                            validar_options('b')
+                            if sub_option == 1:
+                                RetornaInfos.retorna_todos_disponiveis()
+                            if sub_option == 2:
+                                RetornaInfos.retorna_veiculos_por_tipo('moto')
+                            if sub_option == 3:
+                                RetornaInfos.retorna_veiculos_por_tipo('carro')
+                            if sub_option == 4:
+                                RetornaInfos.retorna_veiculos_por_tipo('camionete')
+                            if sub_option == 0:
+                                break
                     if option == 0:
                         break
 
