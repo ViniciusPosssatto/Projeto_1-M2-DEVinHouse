@@ -1,6 +1,7 @@
 from entity import Veiculo, MotoTriciclo, Carro, Camionete, RetornaInfos
 from menu_options import MenuOptions
-from valida_input import validar_data, validar_placa, validar_portas, validar_rodas
+from valida_input import validar_data, validar_placa, validar_portas, validar_rodas, validar_combustivel_camionete, \
+    validar_combustivel_carro
 
 
 class Menu:
@@ -40,7 +41,7 @@ class Menu:
                         valor = int(input('Digite o valor: R$ '))
                         data = validar_data()
                         cor = input('Digite a cor predominante: ')
-                        combustivel = v
+                        combustivel = validar_combustivel_carro()
 
                         Carro(potencia=potencia, portas=portas, data_fabr=data, modelo=modelo, placa=placa, valor=valor,
                               combustivel=combustivel, cor=cor).salvar_carro()
@@ -54,7 +55,7 @@ class Menu:
                         valor = int(input('Digite o valor: R$ '))
                         data = validar_data()
                         cor = input('Digite a cor predominante: ')
-                        combustivel = input('Qual o tipo de combustível(diesel/gasolina): ')
+                        combustivel = validar_combustivel_camionete()
                         cacamba = int(input('Qual o tamanho da caçamba(litros): '))
                         Camionete(potencia=potencia, portas=portas, data_fabr=data, modelo=modelo, placa=placa,
                                   valor=valor, combustivel=combustivel, cacamba=cacamba, cor=cor).salvar_camionete()

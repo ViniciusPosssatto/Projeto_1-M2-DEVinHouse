@@ -54,8 +54,30 @@ def validar_portas():
     portas = ' '
     try:
         while portas not in [2, 3]:
-            portas = int(input('Digite o número de rodas [2 ou 3]: '))
+            portas = int(input('Digite o número de portas [2 ou 3]: '))
         return portas
     except Exception:
         print('Valor deve ser numérico.')
         return validar_portas()
+
+
+def validar_combustivel_camionete():
+    combustivel = ' '
+    try:
+        while combustivel not in ['diesel', 'gasolina']:
+            combustivel = input('Qual o tipo de combustível(diesel/gasolina): ')
+        return combustivel
+    except Exception:
+        print("Combustível deve ser 'diesel' ou 'gasolina'.")
+        return validar_combustivel_camionete()
+
+
+def validar_combustivel_carro():
+    combustivel = ' '
+    try:
+        while combustivel not in ['flex', 'gasolina']:
+            combustivel = input('Qual o tipo de combustível(flex/gasolina): ')
+        return combustivel
+    except Exception:
+        print("Combustível deve ser 'flex' ou 'gasolina'.")
+        return validar_combustivel_carro()
