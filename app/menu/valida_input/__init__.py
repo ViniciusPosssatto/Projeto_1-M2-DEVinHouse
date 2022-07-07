@@ -61,26 +61,16 @@ def validar_portas():
         return validar_portas()
 
 
-def validar_combustivel_camionete():
+def validar_combustivel(opt):
     combustivel = ' '
+    tipo = {'carro': ['flex', 'gasolina'], 'camionete': ['diesel', 'gasolina']}
     try:
-        while combustivel not in ['diesel', 'gasolina']:
-            combustivel = input('Qual o tipo de combustível(diesel/gasolina): ')
+        while combustivel not in tipo.get(opt):
+            combustivel = input(f'Qual o tipo de combustível{tipo.get(opt)}: ')
         return combustivel
     except Exception:
-        print("Combustível deve ser 'diesel' ou 'gasolina'.")
-        return validar_combustivel_camionete()
-
-
-def validar_combustivel_carro():
-    combustivel = ' '
-    try:
-        while combustivel not in ['flex', 'gasolina']:
-            combustivel = input('Qual o tipo de combustível(flex/gasolina): ')
-        return combustivel
-    except Exception:
-        print("Combustível deve ser 'flex' ou 'gasolina'.")
-        return validar_combustivel_carro()
+        print(f"Combustível deve ser '{tipo.get(opt)}'.")
+        return validar_combustivel(opt)
 
 
 def validar_potencia():
