@@ -85,7 +85,24 @@ class Menu:
 
                 if option == 4:
                     """Alterar dados de veículo."""
-                    # Veiculo.alterar_info_veiculo()
+                    MenuOptions.altera_info_veiculo()
+                    sub_option = ' '
+                    while sub_option not in [1, 2, 0]:
+                        sub_option = int(input('Digite a opção desejada: '))
+                    if sub_option == 1:
+                        opcao = input('Qual tipo de veículo deseja alterar: ')
+                        chassi = input('Digite a numeração do chassi: ')
+                        cor = int(input('Digite a nova cor: '))
+                        Veiculo.alterar_info_veiculo(opcao=opcao, chassi=chassi, type_info='cor', nova_info=cor)
+                        print('Cor alterada com sucesso!')
+                    if sub_option == 2:
+                        opcao = input('Qual tipo de veículo deseja alterar: ')
+                        chassi = input('Digite a numeração do chassi: ')
+                        valor = int(input('Digite o novo valor: R$ '))
+                        Veiculo.alterar_info_veiculo(opcao=opcao, chassi=chassi, type_info='valor', nova_info=valor)
+                        print('Valor alterado com sucesso!')
+                    if sub_option == 0:
+                        break
 
                 if option == 5:
                     """Histórico da empresa."""

@@ -36,6 +36,7 @@ class MenuOptions:
 
     @staticmethod
     def listar_infos():
+        """OPCAO 2 dashboard"""
         print("""
            Listar informações de veículos:
            "Para acessar o número do chassi do veículo, 
@@ -50,8 +51,21 @@ class MenuOptions:
                """)
 
     @staticmethod
+    def altera_info_veiculo():
+        """OPCAO 4 dashboard"""
+        print("""
+                  Alteração de informações de veículos:
+                  "Para acessar o número do chassi do veículo, 
+                   utilize a opção [2] do menu inicial."
+
+                      Opções:
+                      [1] Alterar cor
+                      [2] Alterar valor
+                      [0] Voltar\n
+                      """)
+
+    @staticmethod
     def historico():
-        """OPCAO 5 dashboard"""
         print("""
             Histórico da empresa:
             
