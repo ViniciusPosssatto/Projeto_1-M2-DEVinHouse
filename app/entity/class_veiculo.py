@@ -23,7 +23,6 @@ class Veiculo:
         if opcao not in tipos_veiculos:
             print('\033[1;91mOpção de veículo inválida.\033[0;0m')
         veiculo = None
-        print(f'aqwe + {opcao} + {cpf} + {chassi} + {valor}')
         for item in tipos_veiculos.get(opcao):
             if chassi == item['chassi']:
                 item['cpf'] = cpf

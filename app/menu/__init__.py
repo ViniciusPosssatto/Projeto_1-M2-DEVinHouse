@@ -106,6 +106,7 @@ class Menu:
                         MenuOptions.altera_info_veiculo()
                         sub_option = validar_options('d')
                         if sub_option == 1:
+                            print("\033[1;94m\nAlterar COR\033[0;0m")
                             opcao = validar_opcao()
                             chassi = validar_chassi(opcao)
                             cor = input('Digite a nova cor: ')
@@ -113,6 +114,7 @@ class Menu:
                             print('\033[1;32mCor alterada com sucesso!\033[0;0m')
                             sleep(1)
                         if sub_option == 2:
+                            print("\033[1;94m\nAlterar VALOR\033[0;0m")
                             opcao = validar_opcao()
                             chassi = validar_chassi(opcao)
                             valor = validar_valor()
