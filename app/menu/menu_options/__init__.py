@@ -47,6 +47,7 @@ class MenuOptions:
                [2] Informações de Carro
                [3] Informações de Camionete
                [4] Consultar veículos
+               [5] Listar todos os veículos da empresa
                [0] Voltar\n
                """)
 

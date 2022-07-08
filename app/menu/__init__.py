@@ -73,7 +73,7 @@ class Menu:
                     """Listar informações de veículo."""
                     while True:
                         MenuOptions.listar_infos()
-                        sub_option = validar_options('b')
+                        sub_option = validar_options('a')
                         if sub_option == 1:
                             chassi = input('Digite a numeração do chassi: ')
                             Veiculo.listar_info_veiculo('moto', chassi)
@@ -88,6 +88,9 @@ class Menu:
                             sleep(1)
                         if sub_option == 4:
                             RetornaInfos.retorna_todos_disponiveis()
+                            sleep(2)
+                        if sub_option == 5:
+                            RetornaInfos.retorna_todos_veiculos()
                             sleep(2)
                         if sub_option == 0:
                             break
