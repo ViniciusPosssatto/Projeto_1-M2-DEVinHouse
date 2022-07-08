@@ -72,7 +72,7 @@ class RetornaInfos:
 
         print(f"""______________________________________________________________________________
     DISPONÍVEIS:
-{'MODELO'.center(15)}  | {'DATA-FABRICAÇÃO'.center(20)} | {'CHASSI'.center(15)} | {'TIPO'.center(15)}""")
+{'MODELO'.center(15)}  | {'DATA-FABRICAÇÃO'.center(20)} | {'CHASSI'.center(15)}| {'TIPO'.center(15)}""")
         for i in motosTriciclos:
             print(f" {i['modelo'].center(15)} | {i['data-fabricação'].center(20)} | {i['chassi'].center(15)}|  Moto")
         for i in carros:
@@ -82,7 +82,7 @@ class RetornaInfos:
                 f" {i['modelo'].center(15)} | {i['data-fabricação'].center(20)} | {i['chassi'].center(15)}|  Camionete")
         print(f""" ______________________________________________________________________________
     VENDIDOS:
-{'MODELO'.center(15)}  | {'DATA-FABRICAÇÃO'.center(20)} | {'CHASSI'.center(15)} | {'TIPO'.center(15)}""")
+{'MODELO'.center(15)}  | {'DATA-FABRICAÇÃO'.center(20)} | {'CHASSI'.center(15)}| {'TIPO'.center(15)}""")
         for i in historico_vendas:
             print(f" {i['infos veiculo']['modelo'].center(15)} | {i['infos veiculo']['data-fabricação'].center(20)} | "
                   f"{i['infos veiculo']['chassi'].center(15)}|{i['tipo'].center(15)}")
