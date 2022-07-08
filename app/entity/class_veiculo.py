@@ -1,10 +1,9 @@
-from datetime import date
 from uuid import uuid4
 
 from data.infos import carros, camionetes, motosTriciclos
 from entity.historico import Historico
 
-data_atual = date.today().strftime("%d/%m/%y")
+
 tipos_veiculos = {'carro': carros, 'moto': motosTriciclos, 'camionete': camionetes}
 
 
@@ -22,23 +21,21 @@ class Veiculo:
     @staticmethod
     def vender_veiculo(opcao, chassi, cpf, valor):
         if opcao not in tipos_veiculos:
-            print('Opção de veículo inválida.')
+            print('\033[1;91mOpção de veículo inválida.\033[0;0m')
         veiculo = None
         for item in tipos_veiculos.get(opcao):
             if chassi == item['chassi']:
                 item['cpf'] = cpf
                 print(f"O veiculo modelo {item['modelo']} cuja placa é {item['placa'].upper()}, foi vendido no valor de"
-                      f" R$ {item['valor']} no dia {data_atual}.")
+                      f" R$ {item['valor']}.")
                 veiculo = item
-                Historico().save_transation(veiculo, cpf, valor, data_atual, opcao)
+                Historico().save_transation(veiculo, cpf, valor, opcao)
                 tipos_veiculos.get(opcao).remove(item)
-            else:
-                print('Chassi não corresponde a um veiculo.')
 
     @staticmethod
     def listar_info_veiculo(opcao, chassi):
         if opcao not in tipos_veiculos:
-            print('Opção de veículo inválida.')
+            print('\033[1;91mOpção de veículo inválida.\033[0;0m')
         for item in tipos_veiculos.get(opcao):
             if chassi == item['chassi']:
                 if opcao == 'carro':
@@ -57,16 +54,17 @@ class Veiculo:
                           f"{item['cacamba']} litros e a numeração do chassi é {item['chassi']}.")
                 return True
         else:
-            print('Veículo não encontrado. Verifique a numeração do chassi e tente novamente.')
+            print('\033[1;91mVeículo não encontrado\033[0;0m. Verifique a numeração do chassi e tente novamente.')
 
     @staticmethod
     def alterar_info_veiculo(opcao, chassi, type_info, nova_info):
         if opcao not in tipos_veiculos:
-            print('Opção de veículo inválida.')
+            print('\033[1;91mOpção de veículo inválida.\033[0;0m')
         for item in tipos_veiculos.get(opcao):
             if chassi == item['chassi']:
                 if type_info == 'cor':
                     item['cor'] = nova_info
                     print(f"Alteração de cor de veículo {item['modelo']} para {nova_info}.")
                 if type_info == 'valor':
+                    print(f"Alteração de valor de veículo {item['modelo']} para {nova_info}.")
                     item['valor'] = nova_info

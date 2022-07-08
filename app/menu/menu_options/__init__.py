@@ -39,14 +39,16 @@ class MenuOptions:
         """OPCAO 2 dashboard"""
         print("""
            Listar informações de veículos:
+           
            "Para acessar o número do chassi do veículo, 
-            utilize a opção [4]'Consultar veículos'."
+            utilize a opção [5]."
 
                Opções:
                [1] Iformações de Moto/Triciclo
                [2] Informações de Carro
                [3] Informações de Camionete
                [4] Consultar veículos
+               [5] Listar todos os veículos da empresa
                [0] Voltar\n
                """)
 
@@ -86,6 +88,7 @@ class MenuOptions:
                 [1] Todas as vendas
                 [2] Venda de maior valor
                 [3] Venda de menor valor
+                [4] Resultado das vendas
                 [0] Voltar\n
                 """)
 
