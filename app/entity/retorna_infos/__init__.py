@@ -12,15 +12,13 @@ class RetornaInfos:
 
     @staticmethod
     def retorna_todos_disponiveis():
+        print(f" {'MODELO'.center(15)} | {'DATA-FABRICAÇÃO'.center(20)} | {'CHASSI'.center(15)}")
         for i in motosTriciclos:
-            print(f"Moto/triciclo modelo {i['modelo']}, fabricado em {i['data-fabricação']}, com valor base de "
-                  f"R$ {i['valor']}. Númeração do chassi: {i['chassi']}.")
+            print(f" {i['modelo'].center(15)} | {i['data-fabricação'].center(20)} | {i['chassi'].center(15)}Moto")
         for i in carros:
-            print(f"Carro modelo {i['modelo']}, fabricado em {i['data-fabricação']}, com valor base de "
-                  f"R$ {i['valor']}. Númeração do chassi: {i['chassi']}.")
+            print(f" {i['modelo'].center(15)} | {i['data-fabricação'].center(20)} | {i['chassi'].center(15)}Carro")
         for i in camionetes:
-            print(f"Camionete modelo {i['modelo']}, fabricado em {i['data-fabricação']}, com valor base de "
-                  f"R$ {i['valor']}. Númeração do chassi: {i['chassi']}.")
+            print(f" {i['modelo'].center(15)} | {i['data-fabricação'].center(20)} | {i['chassi'].center(15)}Camionete")
 
     @staticmethod
     def retorna_veiculos_por_tipo(tipo):
@@ -28,19 +26,18 @@ class RetornaInfos:
             print('Opção de veículo inválida.')
         for item in tipos_veiculos.get(tipo):
             if tipo == 'carro':
-                print(f"O modelo é {item['modelo']}, possui {item['portas']} portas e {item['potencia']} "
-                      f"cavalos de potência. A placa é {item['placa'].upper()} e o valor: R$ {item['valor']}. "
-                      f"Foi fabricado em {item['data-fabricação']} na cor {item['cor']}. O número do chassi é "
-                      f"{item['chassi']}.")
+                print(f"Modelo: {item['modelo']} - Portas: {item['portas']} - Potência: {item['potencia']} "
+                      f"cavalos - Placa: {item['placa'].upper()} - Valor: R$ {item['valor']}. "
+                      f"Data fabricação: {item['data-fabricação']} - Cor {item['cor']} - Chassi: {item['chassi']}.")
             elif tipo == 'moto':
-                print(f"O modelo é {item['modelo']}, tem {item['potencia']} cavalos de potência. A placa é "
-                      f"{item['placa'].upper()} e o valor: R$ {item['valor']}. O número do chassi é "
-                      f"{item['chassi']}. Foi fabricado em {item['data-fabricação']} na cor {item['cor']}.")
+                print(f"Modelo: {item['modelo']} - Rodas: {item['rodas']} - Potência: {item['potencia']} "
+                      f"cavalos - Placa: {item['placa'].upper()} - Valor: R$ {item['valor']}. "
+                      f"Data fabricação: {item['data-fabricação']} - Cor {item['cor']} - Chassi: {item['chassi']}.")
             elif tipo == 'camionete':
-                print(f"O modelo é {item['modelo']}, possui {item['portas']} portas e {item['potencia']} "
-                      f"cavalos de potência. A placa é {item['placa'].upper()} e o valor: R$ {item['valor']}. "
-                      f"Foi fabricado em {item['data-fabricação']} na cor {item['cor']}. O tamanho da caçamba é de "
-                      f"{item['cacamba']} litros e a numeração do chassi é {item['chassi']}.")
+                print(f"Modelo: {item['modelo']} - Portas: {item['portas']} - Potência: {item['potencia']} "
+                      f"cavalos - Placa: {item['placa'].upper()} - Valor: R$ {item['valor']}. "
+                      f"Data fabricação: {item['data-fabricação']} - Cor {item['cor']} - Chassi: {item['chassi']} - "
+                      f"Caçamba: {item['cacamba']} litros.")
 
     @staticmethod
     def retorna_vendido_maior_valor():
@@ -51,7 +48,7 @@ class RetornaInfos:
                 maior = i['valor de venda']
                 item = i
         return print(f"O veículo vendido pelo maior valor foi um(a) {item['tipo']}, modelo "
-                     f"{item['infos veiculo']['modelo']}, no valor de R${item['valor de venda']}")
+                     f"{item['infos veiculo']['modelo']}, no valor de R${item['valor de venda']}.")
 
     @staticmethod
     def retorna_vendido_menor_valor():
