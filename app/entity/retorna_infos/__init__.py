@@ -41,22 +41,28 @@ class RetornaInfos:
 
     @staticmethod
     def retorna_vendido_maior_valor():
-        maior = 0
-        item = ' '
-        for i in historico_vendas:
-            if i['valor de venda'] > maior:
-                maior = i['valor de venda']
-                item = i
+        maior = sorted(historico_vendas, key=lambda value: value["valor de venda"], reverse=True)
+        item = maior[0]
         return print(f"O veículo vendido pelo maior valor foi um(a) {item['tipo']}, modelo "
                      f"{item['infos veiculo']['modelo']}, no valor de R${item['valor de venda']}.")
 
     @staticmethod
     def retorna_vendido_menor_valor():
-        menor = 999999999
-        item = ' '
-        for i in historico_vendas:
-            if i['valor de venda'] < menor:
-                menor = i['valor de venda']
-                item = i
+        menor = sorted(historico_vendas, key=lambda value: value["valor de venda"], reverse=False)
+        item = menor[0]
         return print(f"O veículo vendido pelo menor valor foi um(a) {item['tipo']}, modelo "
                      f"{item['infos veiculo']['modelo']}, no valor de R${item['valor de venda']}")
+
+    @staticmethod
+    def retorna_resultado():
+        total_valor_base = 0
+        total_valor_venda = 0
+        for item in historico_vendas:
+            total_valor_base += item['infos veiculo']['valor']
+            total_valor_venda += item['valor de venda']
+        total = total_valor_venda - total_valor_base
+        if total > 0:
+            resultado = '\033[1;92mlucro\033[0;0m'
+        else:
+            resultado = '\033[1;91mprejuízo\033[0;0m'
+        return print(f'Atualmente a empresa tem um {resultado} de R${total:.2f} nas vendas de veículos.')

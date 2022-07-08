@@ -133,13 +133,15 @@ class Menu:
                             """Vendas realizadas"""
                             while True:
                                 MenuOptions.vendas_realizadas()
-                                sub_option = validar_options('c')
+                                sub_option = validar_options('b')
                                 if sub_option == 1:
                                     RetornaInfos.retorna_todas_vendas()
                                 if sub_option == 2:
                                     RetornaInfos.retorna_vendido_maior_valor()
                                 if sub_option == 3:
                                     RetornaInfos.retorna_vendido_menor_valor()
+                                if sub_option == 4:
+                                    RetornaInfos.retorna_resultado()
                                 if sub_option == 0:
                                     break
 

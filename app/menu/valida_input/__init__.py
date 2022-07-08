@@ -144,5 +144,3 @@ def validar_cpf():
     except Exception:
         print('\033[1;91mCPF não é válido! Tente novamente.\033[0;0m')
         return validar_cpf()
-
-

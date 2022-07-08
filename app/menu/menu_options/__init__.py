@@ -86,6 +86,7 @@ class MenuOptions:
                 [1] Todas as vendas
                 [2] Venda de maior valor
                 [3] Venda de menor valor
+                [4] Resultado das vendas
                 [0] Voltar\n
                 """)
 

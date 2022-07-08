@@ -23,5 +23,8 @@ camionetes = [
 historico_vendas = [
     {'infos veiculo': {'potencia': 250, 'rodas': 2, 'chassi': 'a67d6h5k', 'data-fabricação': '10/11/2010',
                        'modelo': 'twister', 'placa': 'dop1k23', 'valor': 20300, 'cpf': 31231574234, 'cor': 'preta'},
-     'valor de venda': 23455, 'data da venda': '06/07/2022', 'tipo': 'moto'}
+     'valor de venda': 23455, 'data da venda': '06/07/2022', 'tipo': 'moto'},
+    {'infos veiculo': {'potencia': 332, 'portas': 6, 'cacamba': 200, 'combustivel': 'diesel', 'chassi': '8ydf4n99',
+     'data-fabricação': '13/01/2020', 'modelo': 'furgão', 'placa': 'ast1u23', 'valor': 70300, 'cpf': 0, 'cor': 'roxa'},
+     'valor de venda': 85677, 'data da venda': '04/03/2021', 'tipo': 'camionete'}
 ]
