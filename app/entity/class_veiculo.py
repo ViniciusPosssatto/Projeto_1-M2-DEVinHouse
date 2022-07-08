@@ -1,8 +1,8 @@
 from datetime import date
 from uuid import uuid4
 
-from data.infos import carros, camionetes, motosTriciclos, historico_vendas
-
+from data.infos import carros, camionetes, motosTriciclos
+from entity.historico import Historico
 
 data_atual = date.today().strftime("%d/%m/%y")
 tipos_veiculos = {'carro': carros, 'moto': motosTriciclos, 'camionete': camionetes}
@@ -10,21 +10,14 @@ tipos_veiculos = {'carro': carros, 'moto': motosTriciclos, 'camionete': camionet
 
 class Veiculo:
 
-    def __init__(self):
+    def __init__(self, data_fabr: str, modelo: str, placa: str, valor: int, cor: str):
         self.chassi = str(uuid4()).split('-')[0]
-        self.data_fabr = None
-        self.modelo = None
-        self.placa = None
-        self.valor = None
+        self.data_fabr = data_fabr
+        self.modelo = modelo
+        self.placa = placa
+        self.valor = valor
+        self.cor = cor
         self.cpf = 0
-        self.cor = None
-
-    def cadastrar_veiculo(self):
-        self.modelo = input('Digite o modelo do veiculo: ')
-        self.placa = input('Digite a placa (ex: dtt5i67): ')
-        self.valor = input('Digite o valor: ')
-        self.cor = input('Digite a cor predominante no veículo: ')
-        self.data_fabr = input('Digite a data de fabricação [dd/mm/aa]: ')
 
     @staticmethod
     def vender_veiculo(opcao, chassi, cpf, valor):
@@ -62,8 +55,9 @@ class Veiculo:
                           f"cavalos de potência. A placa é {item['placa'].upper()} e o valor: R$ {item['valor']}. "
                           f"Foi fabricado em {item['data-fabricação']} na cor {item['cor']}. O tamanho da caçamba é de "
                           f"{item['cacamba']} litros e a numeração do chassi é {item['chassi']}.")
-            else:
-                print('Veículo não encontrado.')
+                return True
+        else:
+            print('Veículo não encontrado. Verifique a numeração do chassi e tente novamente.')
 
     @staticmethod
     def alterar_info_veiculo(opcao, chassi, type_info, nova_info):
@@ -76,11 +70,3 @@ class Veiculo:
                     print(f"Alteração de cor de veículo {item['modelo']} para {nova_info}.")
                 if type_info == 'valor':
                     item['valor'] = nova_info
-
-
-class Historico:
-
-    @staticmethod
-    def save_transation(info_veiculo, cpf, valor, data, tipo):
-        historico_vendas.append({'infos veiculo': info_veiculo, 'cpf': cpf, 'valor de venda': valor,
-                                 'data da venda': data, 'tipo': tipo})

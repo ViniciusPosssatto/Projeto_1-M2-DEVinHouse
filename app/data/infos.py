@@ -20,4 +20,8 @@ camionetes = [
      'data-fabricação': '13/01/20', 'modelo': 'amarok', 'placa': 'ast1u23', 'valor': 150300, 'cpf': 0, 'cor': 'roxa'}
     ]
 
-historico_vendas = []
+historico_vendas = [
+    {'infos veiculo': {'potencia': 250, 'rodas': 2, 'chassi': 'a67d6h5k', 'data-fabricação': '10/11/10',
+                       'modelo': 'twister', 'placa': 'dop1k23', 'valor': 20300, 'cpf': 31231574234, 'cor': 'preta'},
+     'valor de venda': 23455, 'data da venda': '06/07/22', 'tipo': 'moto'}
+]
