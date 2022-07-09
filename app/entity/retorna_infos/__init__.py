@@ -1,4 +1,4 @@
-from data.infos import carros, camionetes, motosTriciclos, historico_vendas
+from data import carros, camionetes, motosTriciclos, historico_vendas
 from entity.class_veiculo import tipos_veiculos
 
 

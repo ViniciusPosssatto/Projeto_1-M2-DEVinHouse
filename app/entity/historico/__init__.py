@@ -1,6 +1,6 @@
 from datetime import date
 
-from data.infos import historico_vendas
+from data import historico_vendas
 
 
 class Historico:
