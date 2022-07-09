@@ -1,6 +1,6 @@
 from uuid import uuid4
 
-from data.infos import carros, camionetes, motosTriciclos
+from data import carros, camionetes, motosTriciclos
 from entity.historico import Historico
 
 

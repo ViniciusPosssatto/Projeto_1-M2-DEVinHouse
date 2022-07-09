@@ -1,4 +1,4 @@
-from data.infos import carros, camionetes, motosTriciclos, historico_vendas
+from data import carros, camionetes, motosTriciclos, historico_vendas
 from entity.class_veiculo import tipos_veiculos
 
 
@@ -6,9 +6,14 @@ class RetornaInfos:
 
     @staticmethod
     def retorna_todas_vendas():
+        print(f"{'MODELO'.center(15)}|{'DATA-FABRICAÇÃO'.center(20)}|{'CHASSI'.center(15)}|{'PLACA'.center(15)}|"
+              f"{'VALOR'.center(15)}|{'COR'.center(15)}|{'POTÊNCIA'.center(15)}|{'DATA-VENDA'.center(15)}|"
+              f"{'VEÍCULO'.center(20)}")
         for i in historico_vendas:
-            print(f"Veiculo modelo {i['infos veiculo']['modelo']}, fabricado em {i['infos veiculo']['data-fabricação']}"
-                  f" foi vendido a um valor de R$ {i['valor de venda']} no dia {i['data da venda']}.")
+            print(f"{i['infos veiculo']['modelo'].center(15)} |{i['infos veiculo']['data-fabricação'].center(20)}|"
+                  f"{i['infos veiculo']['chassi'].center(15)}|{i['infos veiculo']['placa'].center(15)}|   R$"
+                  f"  {i['valor de venda']}   |{i['infos veiculo']['cor'].center(15)}|    "
+                  f"  {i['infos veiculo']['potencia']}      |{i['data da venda'].center(15)}|{i['tipo'].center(20)}")
 
     @staticmethod
     def retorna_todos_disponiveis():
@@ -26,17 +31,17 @@ class RetornaInfos:
             print('Opção de veículo inválida.')
         for item in tipos_veiculos.get(tipo):
             if tipo == 'carro':
-                print(f"Modelo: {item['modelo']} - Portas: {item['portas']} - Potência: {item['potencia']} "
+                print(f"\nModelo: {item['modelo']} - Portas: {item['portas']} - Potência: {item['potencia']} "
                       f"cavalos - Placa: {item['placa'].upper()} - Valor: R$ {item['valor']}. "
-                      f"Data fabricação: {item['data-fabricação']} - Cor {item['cor']} - Chassi: {item['chassi']}.")
+                      f"Data fabricação: {item['data-fabricação']} - Cor: {item['cor']} - Chassi: {item['chassi']}.")
             elif tipo == 'moto':
-                print(f"Modelo: {item['modelo']} - Rodas: {item['rodas']} - Potência: {item['potencia']} "
+                print(f"\nModelo: {item['modelo']} - Rodas: {item['rodas']} - Potência: {item['potencia']} "
                       f"cavalos - Placa: {item['placa'].upper()} - Valor: R$ {item['valor']}. "
-                      f"Data fabricação: {item['data-fabricação']} - Cor {item['cor']} - Chassi: {item['chassi']}.")
+                      f"Data fabricação: {item['data-fabricação']} - Cor: {item['cor']} - Chassi: {item['chassi']}.")
             elif tipo == 'camionete':
-                print(f"Modelo: {item['modelo']} - Portas: {item['portas']} - Potência: {item['potencia']} "
+                print(f"\nModelo: {item['modelo']} - Portas: {item['portas']} - Potência: {item['potencia']} "
                       f"cavalos - Placa: {item['placa'].upper()} - Valor: R$ {item['valor']}. "
-                      f"Data fabricação: {item['data-fabricação']} - Cor {item['cor']} - Chassi: {item['chassi']} - "
+                      f"Data fabricação: {item['data-fabricação']} - Cor: {item['cor']} - Chassi: {item['chassi']} - "
                       f"Caçamba: {item['cacamba']} litros.")
 
     @staticmethod
