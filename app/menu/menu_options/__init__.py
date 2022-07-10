@@ -41,7 +41,7 @@ class MenuOptions:
            Listar informações de veículos:
            
            "Para acessar o número do chassi do veículo, 
-            utilize a opção [5]."
+            utilize a opção [4]."
 
                Opções:
                [1] Iformações de Moto/Triciclo

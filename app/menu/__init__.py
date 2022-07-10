@@ -25,7 +25,7 @@ class Menu:
                     while True:
                         self.options.cadastro_veiculo()
                         sub_option = self.validar.validar_options('c')
-                        if sub_option == '1':
+                        if sub_option == 1:
                             print("\033[1;94m\nCadastrar MOTO/TRICICLO\033[0;0m\n")
                             modelo = input('Digite nome do modelo: ')
                             rodas = self.validar.validar_rodas()
@@ -41,7 +41,7 @@ class Menu:
                             print('\033[1;32mCadastro de veículo concluído.\033[0;0m')
                             sleep(2)
                             self.validar.cls()
-                        if sub_option == '2':
+                        if sub_option == 2:
                             print("\033[1;94m\nCadastrar CARRO\033[0;0m\n")
                             modelo = input('Digite nome do modelo: ')
                             portas = self.validar.validar_portas()
@@ -59,7 +59,7 @@ class Menu:
                             print('\033[1;32mCadastro de veículo concluído.\033[0;0m')
                             sleep(2)
                             self.validar.cls()
-                        if sub_option == '3':
+                        if sub_option == 3:
                             print("\033[1;94m\nCadastrar CAMIONETE\033[0;0m\n")
                             modelo = input('Digite nome do modelo: ')
                             portas = self.validar.validar_portas()
@@ -103,10 +103,10 @@ class Menu:
                             self.validar.cls()
                         if sub_option == 4:
                             RetornaInfos.retorna_todos_disponiveis()
-                            click = input('\nPessione uma tecla para sair...')
-                            self.validar.cls()
                         if sub_option == 5:
                             RetornaInfos.retorna_todos_veiculos()
+                            click = input('\nPessione uma tecla para sair...')
+                            self.validar.cls()
                         if sub_option == 0:
                             self.validar.cls()
                             break
